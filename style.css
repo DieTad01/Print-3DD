@@ -283,7 +283,7 @@ input[name="slide"]:checked + .slides + .navigation label:nth-child(3) {
 }
 
 #redes-sociales a:hover {
-    color: #3512d3;
+    color: #D5575E;
     transform: scale(1.05);
 }
 
@@ -722,4 +722,5 @@ hr{
         font-size: 12px;
         padding: 6px 4px;
     }
+
 }
