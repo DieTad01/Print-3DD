@@ -689,3 +689,37 @@ hr{
     height: 300px;
   }
 }
+
+/* Ajustes para móviles muy pequeños */
+@media (max-width: 480px) {
+    header ul {
+        gap: 1px;
+    }
+    
+    header ul li {
+        min-width: 110px;
+        font-size: 13px;
+    }
+    
+    header a {
+        padding: 8px 5px;
+        font-size: 13px;
+    }
+    
+    .Logo {
+        width: 80px;
+        height: auto;
+    }
+}
+
+/* Ajustes extra para pantallas muy estrechas */
+@media (max-width: 360px) {
+    header ul li {
+        min-width: 100px;
+    }
+    
+    header a {
+        font-size: 12px;
+        padding: 6px 4px;
+    }
+}
