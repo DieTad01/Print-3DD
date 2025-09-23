@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <!-- Esta parte es importante para las animaciones-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('a.transicion').click(function(e) {
+            e.preventDefault();
+            $('body').addClass('slide-out-left');
+            setTimeout(() => {
+                window.location.href = $(this).attr('href');
+            }, 700);
+        });
+    });
+    </script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="icon" href="./img/Logo.png" type="image/x-icon">
+    <script src="carrusel.js" defer></script>
+    <title>Print 3DD</title>
+</head>
+
+<body>
+    <header>
+        <center><img src="./assets/Logo.png" width="120" height="100" title="Print 3DD" class="Logo"></center>
+        <center><ul>
+            <a href="#" target="_blank"><li>Impresiones</li></a>
+            <a href="#" target="_blank"><li>Cotizacion</li></a>
+            <a href="#" target="_blank"><li>Creaciones</li></a>
+            <a href="#" target="_blank"><li>Testimonios</li></a>
+            <a href="#" target="_blank"><li>Preguntas frecuentes</li></a>
+        </ul></center>
+    </header>
+    <br><br><br><br><br>
+    <br><br><br>
+
+    <!-- Este es el carrusel -->
+    <div class="carrusel">
+    <input type="radio" name="slide" id="slide1" checked>
+    <input type="radio" name="slide" id="slide2">
+    <input type="radio" name="slide" id="slide3">
+
+    <div class="slides">
+        <div class="slide s1">
+            <img src="./assets/Imagen1.webp" alt="Imagen 1" loading="lazy">
+        </div>
+        <div class="slide">
+            <img src="./assets/Imagen1.webp" alt="Imagen 2" loading="lazy">
+        </div>
+        <div class="slide">
+            <img src="./assets/Imagen1.webp" alt="Imagen 3" loading="lazy">
+        </div>
+    </div>
+
+    <div class="navigation">
+        <label for="slide1"></label>
+        <label for="slide2"></label>
+        <label for="slide3"></label>
+    </div>
+    </div>
+
+    <!-- Slogan -->
+    <div class="slogan-container">
+    <p class="slogan-text">El futuro tiene forma. Nosotros lo creamos</p>
+    </div>
+
+    <!-- Bibliografia -->
+    <div id="bibliografia">
+        <center><h1>Print 3DD</h1></center>
+        <h3></h3>
+        <h3>León, Guanajuato</h3>
+    </div>
+    
+    <!-- Fundamentos -->
+    <div class="mision-vision-valores">
+    <div class="columna">
+        <h2>Misión</h2>
+        <p>Convertir tus ideas en realidad tangible mediante la impresión 3D de alta precisión, ofreciendo un servicio personalizado y soluciones creativas para cada proyecto.</p>
+    </div>
+    <div class="columna">
+        <h2>Visión</h2>
+        <p>Ser el estudio de impresión 3D de referencia para creadores, diseñadores y empresas en nuestra región, reconocidos por nuestra capacidad para dar vida a las ideas más innovadoras con confiabilidad, calidad excepcional y un enfoque profundamente colaborativo.</p>
+    </div>
+    <div class="columna">
+        <h2>Valores</h2>
+        <p>
+            <strong>Precisión:</strong> Nos comprometemos con la máxima fidelidad y calidad en cada impresión.<br>
+            <strong>Innovación:</strong> Estamos en constante aprendizaje y actualización para dominar las últimas tecnologías, materiales y técnicas de fabricación aditiva.<br>
+            <strong>Sustentabilidad:</strong> Promovemos un uso consciente de los materiales, optimizando diseños para reducir waste y explorando filamentos de origen reciclado o biodegradable.
+
+<br>
+        </p>
+    </div>
+    </div>
+    <br><br><br><br> 
+
+    <!-- Pie -->
+    <footer id="pie">
+        <div id="redes-sociales">
+            <br>
+            <h2>Fundadores:</h2>
+            <h3>Daniel Joshua Villanueva Vargas</h3>
+            <h3>Diego Tadeo Pérez Hernández</h3>
+            <a href="https://wa.me/4778476218" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="mailto:danielvillanuevatec@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+            <br><br>
+        </div>
+    </footer>
+</body>
+</html>
