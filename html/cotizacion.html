@@ -4,23 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../css/cotizacion.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="./assets/Logo.png" type="image/png">
+    <link rel="shortcut icon" href="./assets/Logo.png" type="image/png">
+    <link rel="apple-touch-icon" href="./assets/Logo.png">
+
     <title>Cotización</title>
 </head>
 <body>
     <header>
         <center><img src="../assets/Logo.png" width="120" height="100" title="Print 3DD" class="Logo"></center>
         <center><ul>
-            <li><a href="#">Impresiones</a></li>
+            <li><a href="impresiones.html">Impresiones</a></li>
             <li><a href="../index.html">Menú</a></li>
-            <li><a href="#">Creaciones</a></li>
-            <li><a href="#">Testimonios</a></li>
-            <li><a href="#">Preguntas frecuentes</a></li>
         </ul></center>
     </header>
     <br><br><br><br>
     <br><br><br><br>
 
-    <div class="calculadora">
+    <div class="nota">
+        <h3>El margen de ganancia nuestra es de 40%</h3>
+        <h3>Esto es un estimado, tanto no puede ser el precio final</h3>
+    </div>
+    <br>
+
+    <center><div class="calculadora">
         <h2>Filamento</h2>
         <input id="filamento" type="number" step="any" value="" placeholder="gr"><br>
         <h2>Electricidad</h2>
@@ -28,24 +39,64 @@
         <h2>Mano de obra (Estimado)</h2>
         <input id="manoobra" type="number" step="any" value="" placeholder="hr"><br>
         <h2>Diseño (Opcional)</h2>
-        <input id="diseño" type="number" step="any" value="" placeholder="hr"><br>
+        <input id="diseno" type="number" step="any" value="" placeholder="hr"><br>
         <h2>Pintura (Colores)</h2>
         <input id="pinturas" type="number" step="any" value="" placeholder="c/u"><br>
-        <h3>El margen de ganancia nuestra es de 40%</h3>
-    </div>
-    <br><br><br><br>
-    <br><br><br><br>
+        <br>
+        <button onclick="calcular()">Calcular</button>
+    </div></center>
+    <br><br>
+
+    <center><div class="resultado" id="resultado"></div></center>
+    <br><br><br>
+    <br><br><br>
 
     <footer id="pie">
         <div id="redes-sociales">
             <br>
             <h2>Fundadores:</h2>
-            <h3>Daniel Joshua Villanueva Vargas</h3>
             <h3>Diego Tadeo Pérez Hernández</h3>
+            <h3>Daniel Joshua Villanueva Vargas</h3>
             <a href="https://wa.me/4778476218" target="_blank"><i class="fab fa-whatsapp"></i></a>
             <a href="mailto:danielvillanuevatec@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.instagram.com/print_3dd.stl/" target="_blank"><i class="fab fa-instagram"></i></a>
             <br><br>
         </div>
     </footer>
+
+    <script>
+        function calcular() {
+        // Constantes
+        const COSTO_FILAMENTO_KG = 250;
+        const CONSUMO_KW = 0.1;
+        const TARIFA = 1.7;
+        const SALARIO_MANO_OBRA = 40;
+        const SALARIO_DISENO = 100;
+        const COSTO_PINTURA = 12;
+        const GANANCIA = 1.40;
+
+        // Valores del formulario
+        let filamento = Number(document.getElementById("filamento").value) || 0;
+        let electricidad = Number(document.getElementById("electricidad").value) || 0;
+        let manoobra = Number(document.getElementById("manoobra").value) || 0;
+        let diseno = Number(document.getElementById("diseno").value) || 0;
+        let pinturas = Number(document.getElementById("pinturas").value) || 0;
+
+        // Cálculos
+        let costoFilamento = (filamento / 1000) * COSTO_FILAMENTO_KG;
+        let costoElectricidad = electricidad * CONSUMO_KW * TARIFA;
+        let costoManoObra = manoobra * SALARIO_MANO_OBRA;
+        let costoDiseno = diseno * SALARIO_DISENO;
+        let costoPintura = pinturas * COSTO_PINTURA;
+
+        let totalBase = costoFilamento + costoElectricidad + costoManoObra + costoDiseno + costoPintura;
+        let totalFinal = totalBase * GANANCIA;
+
+        document.getElementById("resultado").innerHTML = `
+            Costo base: $${totalBase.toFixed(2)} MXN <br>
+            Precio final (40% ganancia): <strong>$${totalFinal.toFixed(2)} MXN</strong>
+        `;
+        }
+    </script>
 </body>
 </html>
